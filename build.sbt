@@ -6,8 +6,10 @@ ThisBuild / organization     := "com.example"
 ThisBuild / organizationName := "example"
 
 lazy val root = (project in file("."))
+  .enablePlugins(NativeImagePlugin)
   .settings(
-    name := "native-image-sample",
+    name := "sbt-native-image-sample",
+    Compile / mainClass := Some("example.Hello"),
     libraryDependencies += scalaTest % Test
   )
 
